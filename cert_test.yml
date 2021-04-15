@@ -11,6 +11,7 @@
         name: test
         state: present
         content: "{{ lookup('file', '{{ playbook_dir }}/server.crt') }}"
+        validate_certs: no
         provider:
           server: "{{ inventory_hostname }}"
           user: admin
