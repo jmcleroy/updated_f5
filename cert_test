@@ -1,0 +1,18 @@
+---
+- name: Using Collections
+  hosts: f5
+  connection: local
+  collections:
+    - f5networks.f5_modules
+
+  tasks:
+    - name: Use a file lookup to import PEM Certificate
+      bigip_ssl_certificate:
+        name: test
+        state: present
+        content: "{{ lookup('file', '/tmp/server.crt') }}"
+        provider:
+          server: "{{ inventory_hostname }}"
+          user: admin
+          password: f5te$t
+     delegate_to: localhost
