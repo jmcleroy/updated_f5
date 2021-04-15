@@ -14,7 +14,7 @@
         cert_name: test
         state: present
         provider:
-          password: secret
+          password: f5te$t
           server: '{{ inventory_hostname }}'
           user: admin
           validate_certs: no
