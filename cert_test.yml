@@ -20,7 +20,7 @@
           validate_certs: no
 
     - name: Add pool member
-      bigip_pool_member:
+      f5networks.f5_modules.bigip_pool_member:
         pool: my-pool
         partition: Common
         host: 192.168.1.1
