@@ -6,13 +6,14 @@
     - f5networks.f5_modules
 
   tasks:
-    - name: Use a file lookup to import PEM Certificate
-      f5networks.f5_modules.bigip_ssl_certificate:
-        name: test
+    - name: Import both key and cert
+      bigip_ssl_key_cert:
+        key_content: "{{ lookup('file', '{{ playbook_dir }}/key.pem') }}"
+        key_name: test
+        cert_content: "{{ lookup('file', '{{ playbook_dir }}/cert.pem') }}"
+        cert_name: test
         state: present
-        content: "{{ lookup('file', '{{ playbook_dir }}/server.crt') }}"
-        validate_certs: no
         provider:
-          server: "{{ inventory_hostname }}"
+          password: secret
+          server: lb.mydomain.com
           user: admin
-          password: f5te$t
