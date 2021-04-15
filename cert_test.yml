@@ -1,6 +1,6 @@
 ---
 - name: Using Collections
-  hosts: f5
+  hosts: all
   connection: local
   collections:
     - f5networks.f5_modules
