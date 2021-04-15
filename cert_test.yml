@@ -13,6 +13,7 @@
         cert_content: "{{ lookup('file', '{{ playbook_dir }}/cert.pem') }}"
         cert_name: test
         state: present
+        validate_certs: no
         provider:
           password: secret
           server: lb.mydomain.com
