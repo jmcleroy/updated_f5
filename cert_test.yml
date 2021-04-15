@@ -10,7 +10,7 @@
       bigip_ssl_certificate:
         name: test
         state: present
-        content: "{{ lookup('file', '/tmp/server.crt') }}"
+        content: "{{ lookup('file', '{{ playbook_dir }}/server.crt') }}"
         provider:
           server: "{{ inventory_hostname }}"
           user: admin
