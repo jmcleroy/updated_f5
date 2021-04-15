@@ -7,7 +7,7 @@
 
   tasks:
     - name: Import both key and cert
-      f5networks.f5modules.bigip_ssl_key_cert:
+      f5networks.f5_modules.bigip_ssl_key_cert:
         key_content: "{{ lookup('file', '{{ playbook_dir }}/key.pem') }}"
         key_name: test
         cert_content: "{{ lookup('file', '{{ playbook_dir }}/cert.pem') }}"
