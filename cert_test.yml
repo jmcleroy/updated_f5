@@ -18,3 +18,18 @@
           server: '{{ inventory_hostname }}'
           user: admin
           validate_certs: no
+
+    - name: Add pool member
+      bigip_pool_member:
+        pool: my-pool
+        partition: Common
+        host: 192.168.1.1
+        port: 80
+        description: web server
+        connection_limit: 100
+        rate_limit: 50
+        ratio: 2
+        provider:
+          server: '{{ inventory_hostname }}'
+          user: admin
+          password: f5te$t
