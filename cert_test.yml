@@ -33,3 +33,4 @@
           server: '{{ inventory_hostname }}'
           user: admin
           password: f5te$t
+          validate_certs: no
